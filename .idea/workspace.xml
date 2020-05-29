@@ -160,7 +160,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="72" />
     <option name="y" value="9" />
     <option name="width" value="1699" />
@@ -260,10 +260,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="458000" />
+    <option name="totallyTimeSpent" value="979000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4986339" visible="true" weight="0.21827957" />
       <window_info id="Image Layers" order="1" />
