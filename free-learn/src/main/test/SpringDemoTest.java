@@ -1,6 +1,8 @@
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import spring.UserController;
 import spring.UserService;
 
@@ -27,5 +29,11 @@ public class SpringDemoTest {
         userServiceField.setAccessible(true);
         userServiceField.set(userController, userService);
         System.out.println(userController.getUserService());
+    }
+
+    @Test
+    public void testBeanFactory() throws Exception {
+        ApplicationContext applicationContext = ClassPathXmlApplicationContext(applicationContext.xml);
+        applicationContext.getBean("&BeanFactory");
     }
 }
