@@ -6,7 +6,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import spring.UserController;
 import spring.UserService;
 
+import java.io.InputStream;
 import java.lang.reflect.Field;
+import java.util.Properties;
 
 /**
  * @author WIN10 .
@@ -32,8 +34,27 @@ public class SpringDemoTest {
     }
 
     @Test
+    public void testSpi() throws Exception {
+        ClassLoader classLoader = SpringDemoTest.class.getClassLoader();
+        InputStream inputStream = classLoader.getResourceAsStream("D:\\ideaProjects\\free-demo\\free-web\\src\\main\\resources\\config\\application.yml");
+
+        Properties properties = new Properties();
+        properties.load(inputStream);
+        System.out.println(properties);
+    }
+
+
+    @Test
+    public void testShutdownHook() throws Exception {
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+            System.out.println("--- ShutdownHook ---");
+        }));
+        Thread.sleep(10000000);
+    }
+
+    @Test
     public void testBeanFactory() throws Exception {
-        ApplicationContext applicationContext = ClassPathXmlApplicationContext(applicationContext.xml);
-        applicationContext.getBean("&BeanFactory");
+        //ApplicationContext applicationContext = ClassPathXmlApplicationContext(applicationContext.xml);
+        //applicationContext.getBean("&BeanFactory");
     }
 }
