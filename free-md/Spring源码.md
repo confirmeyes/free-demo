@@ -142,6 +142,8 @@ extends EnvironmentCapable, ListableBeanFactory, HierarchicalBeanFactory, Messag
 
 - ConfigurableApplicationContext 继承了ApplicationContext 能力，它重新覆盖了EnvironmentCapable的getEnvironment方法，并且返回的是 <font color="red">ConfigurableEnvironment</font> 事实上 Environment是只读的。<font color="red">ConfigurableEnvironment</font> 是可以被配置的，进行个性定制。
 
+![Image](https://github.com/confirmeyes/free-demo/blob/master/free-md/img/CAHKP_%40M5P8JD(3L9~%40_%7B92.png)
+
 #### ApplicationEventPublisher
 
 ```
