@@ -27,7 +27,7 @@
           <entry key="class" value="16" />
           <entry key="iml" value="1" />
           <entry key="java" value="48" />
-          <entry key="md" value="4" />
+          <entry key="md" value="5" />
           <entry key="yml" value="1" />
         </counts>
       </usages-collector>
@@ -36,7 +36,7 @@
           <entry key="CLASS" value="16" />
           <entry key="IDEA_MODULE" value="1" />
           <entry key="JAVA" value="48" />
-          <entry key="Markdown" value="4" />
+          <entry key="Markdown" value="5" />
           <entry key="UML" value="1" />
           <entry key="YAML" value="1" />
         </counts>
@@ -85,23 +85,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/free-service/src/main/java/Service/IUserService.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="243">
               <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/free-md/Spring源码.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SECOND">
-              <first_editor relative-caret-position="2997">
-                <caret line="111" column="2" selection-start-line="111" selection-start-column="2" selection-end-line="111" selection-end-column="2" />
-              </first_editor>
-              <second_editor />
             </state>
           </provider>
         </entry>
@@ -186,9 +174,9 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="505" />
-    <option name="y" value="51" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="395" />
+    <option name="y" value="22" />
     <option name="width" value="1699" />
     <option name="height" value="1011" />
   </component>
@@ -213,6 +201,12 @@
               <item name="free-demo" type="b2602c69:ProjectViewProjectNode" />
               <item name="free-demo" type="462c0819:PsiDirectoryNode" />
               <item name="free-md" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="free-demo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="free-demo" type="462c0819:PsiDirectoryNode" />
+              <item name="free-md" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="free-demo" type="b2602c69:ProjectViewProjectNode" />
@@ -294,7 +288,7 @@
     <property name="SearchEverywhereHistoryKey" value="SimpleEvent&#9;FILE&#9;jar://D:/maven/repository/org/springframework/spring-context/5.1.3.RELEASE/spring-context-5.1.3.RELEASE.jar!/org/springframework/context/event/SimpleApplicationEventMulticaster.class&#10;Lifecycle&#9;FILE&#9;jar://D:/maven/repository/org/apache/tomcat/embed/tomcat-embed-core/9.0.13/tomcat-embed-core-9.0.13.jar!/org/apache/catalina/Lifecycle.class&#10;Application&#9;FILE&#9;jar://D:/maven/repository/org/springframework/spring-context/5.1.3.RELEASE/spring-context-5.1.3.RELEASE.jar!/org/springframework/context/ApplicationContext.class&#10;MessageSource&#9;PSI&#9;JAVA://org.springframework.context.MessageSource&#10;HierarchicalBeanFactory&#9;PSI&#9;JAVA://org.springframework.beans.factory.HierarchicalBeanFactory&#10;ListableBeanFactory&#9;PSI&#9;JAVA://org.springframework.beans.factory.ListableBeanFactory&#10;ApplicationContext&#9;PSI&#9;JAVA://org.springframework.context.ApplicationContext&#10;ConfigurableEnvironment&#9;PSI&#9;JAVA://org.springframework.core.env.ConfigurableEnvironment&#10;BeanF&#9;PSI&#9;JAVA://org.springframework.beans.factory.BeanFactory" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1591156105853" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1591165512879" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
@@ -303,8 +297,8 @@
       <recent name="D:\ideaProjects\free-demo\free-md" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\ideaProjects\free-demo\free-md" />
       <recent name="D:\ideaProjects\free-demo\free-md\img" />
+      <recent name="D:\ideaProjects\free-demo\free-md" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -409,7 +403,7 @@
       <workItem from="1591067316451" duration="154000" />
       <workItem from="1591067512046" duration="173000" />
       <workItem from="1591067726855" duration="8223000" />
-      <workItem from="1591146717751" duration="7936000" />
+      <workItem from="1591146717751" duration="8644000" />
     </task>
     <task id="LOCAL-00001" summary=".">
       <created>1590737772331</created>
@@ -444,13 +438,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29292000" />
+    <option name="totallyTimeSpent" value="30000000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="503" y="37" width="1699" height="1011" extended-state="0" />
+    <frame x="249" y="38" width="1699" height="1011" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4986339" visible="true" weight="0.21873075" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4986339" visible="true" weight="0.21873075" />
       <window_info id="Image Layers" order="1" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -482,7 +476,7 @@
       <window_info anchor="right" id="Theme Preview" order="4" />
       <window_info anchor="right" id="Palette&#9;" order="5" />
       <window_info anchor="right" id="Database" order="6" />
-      <window_info anchor="right" id="Maven Projects" order="7" visible="true" weight="0.23783118" />
+      <window_info active="true" anchor="right" id="Maven Projects" order="7" visible="true" weight="0.23783118" />
       <window_info anchor="right" id="Bean Validation" order="8" />
       <window_info anchor="right" id="jclasslib" order="9" weight="0.55215055" />
       <window_info anchor="right" id="Translate" order="10" />
@@ -912,20 +906,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/free-md/Spring源码.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SECOND">
+          <first_editor>
+            <caret line="111" column="2" selection-start-line="111" selection-start-column="2" selection-end-line="111" selection-end-column="2" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/free-service/src/main/java/Service/IUserService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="243">
           <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/free-md/Spring源码.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SECOND">
-          <first_editor relative-caret-position="2997">
-            <caret line="111" column="2" selection-start-line="111" selection-start-column="2" selection-end-line="111" selection-end-column="2" />
-          </first_editor>
-          <second_editor />
         </state>
       </provider>
     </entry>

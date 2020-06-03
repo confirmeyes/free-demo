@@ -1,3 +1,7 @@
+#### Spring Ioc 
+
+![SpringIoc ](img\SpringIoc .jpg)
+
 
 
 #### BeanFactory
