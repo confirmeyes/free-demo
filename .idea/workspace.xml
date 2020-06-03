@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4d06562c-d820-43cf-b6dd-957c01ed89af" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/free-md/Spring源码.md" beforeDir="false" afterPath="$PROJECT_DIR$/free-md/Spring源码.md" afterDir="false" />
-    </list>
+    <list default="true" id="4d06562c-d820-43cf-b6dd-957c01ed89af" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/free-logging/target/" />
     <ignored path="$PROJECT_DIR$/free-service/target/" />
@@ -188,9 +186,9 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="503" />
-    <option name="y" value="37" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="505" />
+    <option name="y" value="51" />
     <option name="width" value="1699" />
     <option name="height" value="1011" />
   </component>
@@ -296,16 +294,17 @@
     <property name="SearchEverywhereHistoryKey" value="SimpleEvent&#9;FILE&#9;jar://D:/maven/repository/org/springframework/spring-context/5.1.3.RELEASE/spring-context-5.1.3.RELEASE.jar!/org/springframework/context/event/SimpleApplicationEventMulticaster.class&#10;Lifecycle&#9;FILE&#9;jar://D:/maven/repository/org/apache/tomcat/embed/tomcat-embed-core/9.0.13/tomcat-embed-core-9.0.13.jar!/org/apache/catalina/Lifecycle.class&#10;Application&#9;FILE&#9;jar://D:/maven/repository/org/springframework/spring-context/5.1.3.RELEASE/spring-context-5.1.3.RELEASE.jar!/org/springframework/context/ApplicationContext.class&#10;MessageSource&#9;PSI&#9;JAVA://org.springframework.context.MessageSource&#10;HierarchicalBeanFactory&#9;PSI&#9;JAVA://org.springframework.beans.factory.HierarchicalBeanFactory&#10;ListableBeanFactory&#9;PSI&#9;JAVA://org.springframework.beans.factory.ListableBeanFactory&#10;ApplicationContext&#9;PSI&#9;JAVA://org.springframework.context.ApplicationContext&#10;ConfigurableEnvironment&#9;PSI&#9;JAVA://org.springframework.core.env.ConfigurableEnvironment&#10;BeanF&#9;PSI&#9;JAVA://org.springframework.beans.factory.BeanFactory" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1591154842815" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1591156105853" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\ideaProjects\free-demo\free-md" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\ideaProjects\free-demo\free-md" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\ideaProjects\free-demo\free-md" />
+      <recent name="D:\ideaProjects\free-demo\free-md\img" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -410,7 +409,7 @@
       <workItem from="1591067316451" duration="154000" />
       <workItem from="1591067512046" duration="173000" />
       <workItem from="1591067726855" duration="8223000" />
-      <workItem from="1591146717751" duration="7339000" />
+      <workItem from="1591146717751" duration="7936000" />
     </task>
     <task id="LOCAL-00001" summary=".">
       <created>1590737772331</created>
@@ -445,7 +444,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28695000" />
+    <option name="totallyTimeSpent" value="29292000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="503" y="37" width="1699" height="1011" extended-state="0" />
