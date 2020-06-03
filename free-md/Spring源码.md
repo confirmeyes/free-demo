@@ -1,6 +1,6 @@
 #### Spring Ioc 
 
-![SpringIoc ](img/SpringIoc.png)
+![](img/SpringIoc.png)
 
 
 
@@ -21,6 +21,26 @@ public interface BeanFactory {
 ```java
 Bean factory implementations should support the standard bean lifecycle interfaces as far as possible. The full set of initialization methods and their standard order is:
 ```
+- set一堆Aware
+- BeanPostProcessors
+- InitializingBean 初始化
+- 自定义的初始化方法
+- BeanPostProcessors
+- DestructionAwareBeanPostProcessors
+- DisposableBean destroy
+- 自定义销毁方法
+
+> BeanNameAware ：可以获取容器中bean的名称
+>
+> BeanFactoryAware:获取当前bean factory这也可以调用容器的服务
+>
+> ApplicationContextAware： 当前的applicationContext， 这也可以调用容器的服务
+>
+> MessageSourceAware：获得message source，这也可以获得文本信息
+>
+> applicationEventPulisherAware：应用事件发布器，可以发布事件，
+>
+> ResourceLoaderAware： 获得资源加载器，可以获得外部资源文件的内容；
 
 ```java
 * <li>BeanNameAware's {@code setBeanName}
@@ -38,11 +58,12 @@ Bean factory implementations should support the standard bean lifecycle interfac
 * (only applicable when running in an application context)
 * <li>ServletContextAware's {@code setServletContext}
 * (only applicable when running in a web application context)
-    
+```
+```java
 * <li>{@code postProcessBeforeInitialization} methods of BeanPostProcessors
 
 * <li>InitializingBean's {@code afterPropertiesSet}
-    
+  
 * <li>a custom init-method definition
 
 * <li>{@code postProcessAfterInitialization} methods of BeanPostProcessors
@@ -68,16 +89,11 @@ Bean factory implementations should support the standard bean lifecycle interfac
   @link #getObjectType()} {@link #getObject()} invocations may arrive early in
   the bootstrap process, even ahead of any post-processor setup.
   ```
+- A bean that implements this interface cannot be used as a normal bean.
 
-- ```
-  A bean that implements this interface cannot be used as a normal bean.
-  ```
+- A FactoryBean is defined in a bean style
 
-- ```java
-  A FactoryBean is defined in a bean style,
-  ```
-
-
+  
 
 #### Environment
 
@@ -99,7 +115,7 @@ Bean factory implementations should support the standard bean lifecycle interfac
 
 
 
-#### ApplicationContext
+#### ApplicationContext （ 真正的集大成者 ）
 
 ```java
 extends EnvironmentCapable, ListableBeanFactory, HierarchicalBeanFactory, MessageSource, ApplicationEventPublisher, ResourcePatternResolver
@@ -161,13 +177,41 @@ public interface ApplicationEventPublisher {
   3. 接口默认继承java.lang.Object ，所以声明Object的方法，不算抽象方法
   4. 该注解能够更好地让编译器进行检查 （ 不是必须 ）
 
-#### AutowireCapableBeanFactory
+#### ConfigurableListableBeanFactory
 
-- 
+![](img/ConfigurableListableBeanFactor.png)
+
+- AutowireCapableBeanFactory 
+
+1. 拥有自动装配能力，并把这种能力暴露给外部应用的BeanFactory类，需要实现此接口
+
+2. 其他框架，利用该接口可以连接和填充Bean实例，且不受Spring控制
+
+3. ApplicationContext通过方法 getAutowireCapableBeanFactory() 可以获取AutowireCapableBeanFactory
+   
 
 
+
+- ListableBeanFactory 扩展BeanFactory ,把所有的Bean实例列举出来，而不是一个个用name去找
+
+- HierarchicalBeanFactory 分层工厂 （2个方法）
+
+- ```java
+     //返回工厂的父工厂
+      BeanFactory getParentBeanFactory();
+        
+       //这个工厂中是否包含这个Bean
+      boolean containsLocalBean(String name);
+  ```
+
+- ConfigurableListableBeanFactory 集成上图的所有接口的功能，加上自身的可配置性
+- 短剑 + 短剑 = 小黄刀  ， 黄刀 + 暴风大剑 = 无尽
 
 #### ResourcePatternResolver
+
+<font color="red"> Strategy interface for resolving a location pattern</font>
+
+- 策略接口，解析本地路径的资源
 
 - 策略接口 资源加载器
 
@@ -175,22 +219,38 @@ public interface ApplicationEventPublisher {
 
 - classpath:  当前路径搜索
   
+  
+---
+#### Lifecycle  、SmartLifecycle
+
+- Can be implemented by both components and containers  
+- 生命周期 在组件和容器中实现  ， 将启动/停止信号传播到所有组件，应用到容器
+- Can be used for direct invocations or for management operations via JMX.
+- 可以被直接调用或通过JMX进行管理（Jconsole）
+
+---
+- SmartLifecycle provides sophisticated integration with the application context's startup and shutdown phases.
+- SmartLifecycle 提供应用上下文 更复杂的 启动 ，关闭阶段。
 
 
 
+#### ConfigurableApplicationContext
 
+![ConfigurableApplicationContext](img/ConfigurableApplicationContext.png)
 
-#### Lifecycle
+```java
+ConfigurableApplicationContext extends ApplicationContext, Lifecycle, Closeable {
+```
 
-
-
+- ConfigurableApplicationContext 继承 ApplicationContext 
 
 
 #### AbstractApplicationContext
 
-
-
-
+```java
+abstract class AbstractApplicationContext extends DefaultResourceLoader
+      implements ConfigurableApplicationContext {
+```
 
 
 
