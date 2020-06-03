@@ -1,6 +1,6 @@
 #### Spring Ioc 
 
-![SpringIoc ](img\SpringIoc .jpg)
+![SpringIoc ](img/SpringIoc .jpg)
 
 
 
