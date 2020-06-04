@@ -1,3 +1,5 @@
+
+
 #### Spring Ioc 
 
 ![](img/SpringIoc.png)
@@ -154,7 +156,31 @@ extends EnvironmentCapable, ListableBeanFactory, HierarchicalBeanFactory, Messag
 
 #### EnvironmentCapable
 
-- 暴露      Environment   getEnvironment();
+- 暴露      <font color="red">Environment   getEnvironment();</font>
+
+- Environment 应用运行的环境 ，两种表现方式 profiles 、 properties ，使用PropertyResolver接口访问属性
+
+- Beans信息 在xml 或者 @Profile 注解 
+
+- properties 属性来源有多种途径 JVM   ,    system   ,   JNDI  ,  servlet   ,   ad-hoc Properties objects
+
+- ```java
+  JVM system properties, system environment variables, JNDI, 
+  servlet context parameters, ad-hoc Properties objects, Maps, and so on.
+  ```
+
+- ApplicationContext 对Bean 进行管理 ， 通过EnvironmentAware  或 @Inject  注册
+
+- <font color="red">使用  PropertySourcesPlaceholderConfigurer</font> 对xml配置文件的 占位符 ${...} 修改
+
+- Spring 3.1 注册默认使用  \<context:property-placeholder/> 管理
+
+  
+
+---
+
+
+
 
 - ```java
   public interface ConfigurableApplicationContext extends ApplicationContext, Lifecycle, Closeable 
@@ -245,12 +271,106 @@ ConfigurableApplicationContext extends ApplicationContext, Lifecycle, Closeable 
 - ConfigurableApplicationContext 继承 ApplicationContext 
 
 
-#### AbstractApplicationContext
+
+---
+
+
+
+#### AbstractApplicationContext --->  抽象类
 
 ```java
 abstract class AbstractApplicationContext extends DefaultResourceLoader
       implements ConfigurableApplicationContext {
 ```
+
+- 抽象类 --> <font color="red">模板方法设计模式，具体的子类来实现抽象方法</font>
+
+- ```
+  an ApplicationContext is supposed
+  * to detect special beans defined in its internal bean factory:
+  * Therefore, this class automatically registers BeanFactoryPostProcessors BeanPostProcessors ApplicationListeners
+  ```
+
+- 应用上下文在内部BeanFactory检测特定的Beans，将 <font color="red">BeanFactoryPostProcessors、 BeanPostProcessors 、ApplicationListener</font> 这些Beans注册进上下文中
+
+- <font color="red">MessageSource</font> 也作为Bean 在上下文中，<font color="red">ApplicationEventMulticaste</font>r 也一样作为Bean
+
+- Implements <font color="red">resource loading</font> through extending DefaultResourceLoader  （extends DefaultResourceLoader）
+  
+
+---
+
+重点：更新应用上下文
+
+```java
+public void refresh() throws BeansException, IllegalStateException {
+   synchronized (this.startupShutdownMonitor) {
+      // Prepare this context for refreshing.
+      prepareRefresh();
+
+      // Tell the subclass to refresh the internal bean factory.
+      ConfigurableListableBeanFactory beanFactory = obtainFreshBeanFactory();
+
+      // Prepare the bean factory for use in this context.
+      prepareBeanFactory(beanFactory);
+
+      try {
+         // Allows post-processing of the bean factory in context subclasses.
+         postProcessBeanFactory(beanFactory);
+
+         // Invoke factory processors registered as beans in the context.
+         invokeBeanFactoryPostProcessors(beanFactory);
+
+         // Register bean processors that intercept bean creation.
+         registerBeanPostProcessors(beanFactory);
+
+         // Initialize message source for this context.
+         initMessageSource();
+
+         // Initialize event multicaster for this context.
+         initApplicationEventMulticaster();
+
+         // Initialize other special beans in specific context subclasses.
+         onRefresh();
+
+         // Check for listener beans and register them.
+         registerListeners();
+
+         // Instantiate all remaining (non-lazy-init) singletons.
+         finishBeanFactoryInitialization(beanFactory);
+
+         // Last step: publish corresponding event.
+         finishRefresh();
+      }
+
+      catch (BeansException ex) {
+         if (logger.isWarnEnabled()) {
+            logger.warn("Exception encountered during context initialization - " +
+                  "cancelling refresh attempt: " + ex);
+         }
+
+         // Destroy already created singletons to avoid dangling resources.
+         destroyBeans();
+
+         // Reset 'active' flag.
+         cancelRefresh(ex);
+
+         // Propagate exception to caller.
+         throw ex;
+      }
+
+      finally {
+         // Reset common introspection caches in Spring's core, since we
+         // might not ever need metadata for singleton beans anymore...
+         resetCommonCaches();
+      }
+```
+
+
+
+
+
+
 
 
 
