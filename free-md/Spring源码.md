@@ -106,6 +106,23 @@ Bean factory implementations should support the standard bean lifecycle interfac
 - ```java
   PropertySourcesPlaceholderConfigurer
   ```
+- Environment 应用运行的环境 ，两种表现方式 profiles 、 properties ，使用PropertyResolver接口访问属性
+
+- Beans信息 在xml 或者 @Profile 注解 
+
+- properties 属性来源有多种途径 JVM   ,    system   ,   JNDI  ,  servlet   ,   ad-hoc Properties objects
+
+- ```java
+  JVM system properties, system environment variables, JNDI, 
+  servlet context parameters, ad-hoc Properties objects, Maps, and so on.
+  ```
+
+- ApplicationContext 对Bean 进行管理 ， 通过EnvironmentAware  或 @Inject  注册
+
+- <font color="red">使用  PropertySourcesPlaceholderConfigurer</font> 对xml配置文件的 占位符 ${...} 修改
+
+- Spring 3.1 注册默认使用  \<context:property-placeholder/> 管理
+
 
 - @Profile 不同的环境下使用不同的@Configuration配置
 
@@ -156,26 +173,10 @@ extends EnvironmentCapable, ListableBeanFactory, HierarchicalBeanFactory, Messag
 
 #### EnvironmentCapable
 
-- 暴露      <font color="red">Environment   getEnvironment();</font>
-
-- Environment 应用运行的环境 ，两种表现方式 profiles 、 properties ，使用PropertyResolver接口访问属性
-
-- Beans信息 在xml 或者 @Profile 注解 
-
-- properties 属性来源有多种途径 JVM   ,    system   ,   JNDI  ,  servlet   ,   ad-hoc Properties objects
-
-- ```java
-  JVM system properties, system environment variables, JNDI, 
-  servlet context parameters, ad-hoc Properties objects, Maps, and so on.
-  ```
-
-- ApplicationContext 对Bean 进行管理 ， 通过EnvironmentAware  或 @Inject  注册
-
-- <font color="red">使用  PropertySourcesPlaceholderConfigurer</font> 对xml配置文件的 占位符 ${...} 修改
-
-- Spring 3.1 注册默认使用  \<context:property-placeholder/> 管理
+- 返回<font color="red">Environment     getEnvironment();</font>
 
   
+
 
 ---
 
