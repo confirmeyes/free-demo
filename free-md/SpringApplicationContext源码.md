@@ -152,6 +152,12 @@ protected void customizeBeanFactory(DefaultListableBeanFactory beanFactory) {
 
 
 
+#### postProcessBeanDefinitionRegistry
+
+- 在BeanFactoryPostProcessor 之前 添加Bean 定义信息
+
+#### ImportBeanDefinitionRegistrar
+
 
 
 
