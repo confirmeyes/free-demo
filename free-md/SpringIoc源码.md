@@ -177,7 +177,6 @@ extends EnvironmentCapable, ListableBeanFactory, HierarchicalBeanFactory, Messag
 
   
 
-
 ---
 
 
@@ -208,7 +207,7 @@ public interface ApplicationEventPublisher {
 
 ![](img/ConfigurableListableBeanFactor.png)
 
-- AutowireCapableBeanFactory 
+- <font color="red">AutowireCapableBeanFactory</font>
 
 1. 拥有自动装配能力，并把这种能力暴露给外部应用的BeanFactory类，需要实现此接口
 
@@ -373,5 +372,16 @@ public void refresh() throws BeansException, IllegalStateException {
 
 
 
+- allowBeanDefinitionOverriding
+- allowCircularReferences
 
-
+```java
+protected void customizeBeanFactory(DefaultListableBeanFactory beanFactory) {
+   if (this.allowBeanDefinitionOverriding != null) {
+      beanFactory.setAllowBeanDefinitionOverriding(this.allowBeanDefinitionOverriding);
+   }
+   if (this.allowCircularReferences != null) {
+      beanFactory.setAllowCircularReferences(this.allowCircularReferences);
+   }
+}
+```
