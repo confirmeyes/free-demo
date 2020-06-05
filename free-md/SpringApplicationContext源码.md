@@ -1,6 +1,6 @@
 ### ApplicationContext 概览
 
-![](C:\Users\WIN10\Desktop\Spring源码\img\ApplicationContext.png)
+![](img\ApplicationContext.png)
 
 - 整合的能力：
 
