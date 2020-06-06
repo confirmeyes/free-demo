@@ -23,7 +23,7 @@ public class stub {
             @Override
             public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
 
-                Socket socket = new Socket("172.28.208.1", 8000);
+                Socket socket = new Socket("192.168.1.8", 8000);
                 OutputStream ops = socket.getOutputStream();
                 //java自带的序列化协议 Serializable
                 ObjectOutputStream oops = new ObjectOutputStream(ops);
