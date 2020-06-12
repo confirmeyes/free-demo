@@ -17,6 +17,8 @@ public class Binary_1 {
         //-3 --> -11 , 补码：30个1 + 01 ， 一共31个1
         System.out.println(NumberOf1(-3));
 
+        System.out.println(1>>2);
+
     }
 
     public static int NumberOf1(int n) {

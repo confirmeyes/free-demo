@@ -24,5 +24,9 @@ public class userTest {
         userList.stream().peek(user -> user.setLoa("POINT(" + user.getLa() + " " + user.getLo() + ")")).collect(Collectors.toList());
 
         userList.forEach(user -> System.out.println(user.toString()));
+
+        for (int j = 0; j < 100; j++) {
+            System.out.println( (int) ((Math.random() * 9 + 1) * 100000));
+        }
     }
 }

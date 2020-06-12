@@ -134,6 +134,117 @@ public void refresh() throws BeansException, IllegalStateException {
       }
 ```
 
+### refresh 流程
+
+#### prepareRefresh() 刷新context
+
+##### AnnotationConfigServletWebServerApplicationContext
+
+```
+this.scanner.clearCache();
+```
+
+- 清理本地元数据缓存 和 所有 缓存元数据类 ，
+-  共享缓存 重置为 本地缓存 （new了一个LinkedHashMap ， 初始值256 ， 扩容因子0.75）
+- local cache , 默认最大值 256的 Map
+
+##### AbstractApplicationContext
+
+```java
+// Initialize any placeholder property sources in the context environment
+initPropertySources();
+
+// Validate that all properties marked as required are resolvable
+// see ConfigurablePropertyResolver#setRequiredProperties
+getEnvironment().validateRequiredProperties();
+
+earlyApplicationEvents = new LinkedHashSet<>();
+```
+
+
+
+#### 告诉子类去刷新 内部工厂 DefaultListableBeanFactory
+
+```
+// Tell the subclass to refresh the internal bean factory.
+ConfigurableListableBeanFactory beanFactory = obtainFreshBeanFactory();
+```
+
+实际是ConfigurableListableBeanFactory的实现类  DefaultListableBeanFactory 
+
+##### GenericApplicationContext
+
+![](img\GenericApplicationContext.png)
+
+
+
+- this.beanFactory 是 DefaultListableBeanFactory
+
+![](img\DefaultListableBeanFactory.png)
+
+- GenericApplicationContext   ， DefaultListableBeanFactory   都实现了 BeanDefinitionRegistry
+-  可以对Bean信息进行注册 registerBeanDefinition
+
+```
+this.beanFactory.setSerializationId(getId());
+```
+
+- serializableFactories 最大容量 8
+
+- ```java
+  private static final Map<String, Reference<DefaultListableBeanFactory>> serializableFactories =
+        new ConcurrentHashMap<>(8);
+  ```
+  
+- 创建 DefaultListableBeanFactory 弱引用 ， 放在 serializableFactories  ConcurrentHashMap中 
+
+- debug时 serializationId 序列化ID为  application
+```
+if (serializationId != null) {
+      serializableFactories.put(serializationId, new WeakReference<>(this));
+   }
+   else if (this.serializationId != null) {
+      serializableFactories.remove(this.serializationId);
+   }
+   this.serializationId = serializationId;
+}
+```
+
+- 返回 DefaultListableBeanFactory
+
+#### 在上下文中准备 BeanFactory
+
+- 为 BeanFactory 配置基本特征 比如 类加载器、后置处理器  ClassLoader and post-processors.
+- 使用context的 类加载器
+- 配置context 与 BeanFactory的回调 ， 为BeanFactory 添加ApplicationContextAwareProcessor
+
+- 忽略一些 Aware 组件 ， 注册一些 资源解析功能
+
+- ```java
+  // BeanFactory interface not registered as resolvable type in a plain factory.
+  // MessageSource registered (and found for autowiring) as a bean.
+  beanFactory.registerResolvableDependency(BeanFactory.class, beanFactory);
+  beanFactory.registerResolvableDependency(ResourceLoader.class, this);
+  beanFactory.registerResolvableDependency(ApplicationEventPublisher.class, this);
+  beanFactory.registerResolvableDependency(ApplicationContext.class, this);
+  
+  // Register early post-processor for detecting inner beans as ApplicationListeners.
+  beanFactory.addBeanPostProcessor(new ApplicationListenerDetector(this));
+  ```
+
+- early post-processor 处理，注册 应用监听器的Bean
+
+- ```java
+  // Register early post-processor for detecting inner beans as ApplicationListeners.
+  beanFactory.addBeanPostProcessor(new ApplicationListenerDetector(this));
+  ```
+
+- Register default environment beans.
+
+
+
+
+
 
 
 - allowBeanDefinitionOverriding
@@ -150,13 +261,11 @@ protected void customizeBeanFactory(DefaultListableBeanFactory beanFactory) {
 }
 ```
 
-
-
-#### postProcessBeanDefinitionRegistry
+##### postProcessBeanDefinitionRegistry
 
 - 在BeanFactoryPostProcessor 之前 添加Bean 定义信息
 
-#### ImportBeanDefinitionRegistrar
+##### ImportBeanDefinitionRegistrar
 
 
 
