@@ -18,7 +18,7 @@ public class ThreadPoolService {
 
     private static final Logger logger = LoggerFactory.getLogger(ThreadPoolService.class);
 
-    public ThreadPoolService() {
+    ThreadPoolService() {
         this.consumeExecutor = new ThreadPoolExecutor(8, 8,
                 60000L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<Runnable>(1024), new ThreadFactoryBuilder()
                 .setNameFormat("consumeExecutor").build());
@@ -33,13 +33,9 @@ public class ThreadPoolService {
     public static void main(String[] args) {
 
         ThreadPoolService threadPoolService = new ThreadPoolService();
-        threadPoolService.getConsumeExecutor();
-
+        ThreadPoolExecutor threadPoolExecutor = threadPoolService.getConsumeExecutor();
+        //threadPoolExecutor.invokeAll()
     }
-
-
-
-
 
 
     public ThreadPoolExecutor getConsumeExecutor() {
