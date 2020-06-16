@@ -1,3 +1,88 @@
+### centos下安装docker
+
+- yum install -y yum-utils device-mapper-persistent-data lvm2
+- yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+
+检测哪个安装源最快并使用
+
+- yum makecache fast
+
+安装docker
+
+- yum -y install docker-ce
+- 验证 docker version
+- docker （ CS架构 ） go语言编写 ，docker 的 client 、server
+
+拉取镜像
+
+- docker pull  镜像名<:tags>        tags 镜像版本
+
+创建容器，启动应用
+
+- docker run 镜像名<:tags>
+- docker run -p 8000:8080 镜像名<:tags>           将宿主机8000 端口 映射到 8080
+- netstat -tulpn       查看端口号
+- docker run -p 8000:8080 -d 镜像名<:tags>       -d表示后台运行
+- docker start 镜像名<:tags>  
+
+查看本地镜像
+
+- docker images 
+
+查看正在运行的镜像
+
+- docker ps
+- docker ps -a      所有容器
+- docker stop containerID       停止指定容器
+
+删除容器
+
+- docker rm <-f>  容器ID          -f 强制删除，包括正在运行的
+
+删除镜像
+
+- docker rmi <-f>  镜像名<:tags>
+
+docker容器存放位置
+
+- cd /var/lib/docker
+
+
+
+#### 容器中执行命令
+
+- docker exec [-it]  容器ID  命令
+- docker exec -it 容器ID /bin/bash
+- cat /proc/version       linux内核版本
+
+
+
+#### Dockerfile描述文件
+
+自定义镜像
+
+- docker build -t 机构/镜像名<:tags> dcokerfile目录
+
+- ```
+  From tomcat:latest
+  设置基准镜像
+  ```
+
+- ```
+  MAINTAINER
+  设置机构
+  ```
+
+- ```
+  WORKDIR /usr/local/tomcat/webapps
+  等同于切换工作路径，不存在则创建
+  ```
+
+- ```
+  ADD docker-web ./docker-web
+  复制目录下所有文件到容器 目录
+  ```
+  
 ### Dockerfile 运行命令
 
 RUN  （ 用于创建镜像 ）
@@ -68,5 +153,4 @@ docker底层网络信息
 
 - yml文件定义多容器部署
 
-  
 
