@@ -21,9 +21,12 @@
 
 - docker run 镜像名<:tags>
 - docker run -p 8000:8080 镜像名<:tags>           将宿主机8000 端口 映射到 8080
-- netstat -tulpn       查看端口号
 - docker run -p 8000:8080 -d 镜像名<:tags>       -d表示后台运行
 - docker start 镜像名<:tags>  
+
+查看端口号
+
+- netstat -tulpn 
 
 查看本地镜像
 
@@ -153,4 +156,4 @@ docker底层网络信息
 
 - yml文件定义多容器部署
 
-
+-
