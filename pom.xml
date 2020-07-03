@@ -59,6 +59,13 @@
                 <scope>import</scope>
             </dependency>
 
+            <!-- lombok-->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${projectlombok.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 

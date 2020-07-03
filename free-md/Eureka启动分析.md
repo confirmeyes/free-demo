@@ -196,3 +196,4 @@ public void invalidate(String appName, @Nullable String vipAddress, @Nullable St
 
 - Lifecycle -------> springframework.context
 - EurekaServerInitializerConfiguration 实现了Lifecycle中 start();  
+

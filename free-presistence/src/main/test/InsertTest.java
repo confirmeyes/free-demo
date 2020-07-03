@@ -79,7 +79,7 @@ public class InsertTest {
 
         for (User user : userList) {
             pstmt.setString(1, user.getName());
-            pstmt.setInt(2, user.getId());
+            //pstmt.setInt(2, user.getId());
             pstmt.setString(3, user.getRemark());
             pstmt.addBatch();
             //pstmt.executeUpdate();
@@ -99,7 +99,7 @@ public class InsertTest {
         List<User> userList = new ArrayList<User>(10000000);
         for (int i = 0; i < count; i++) {
             User user = new User();
-            user.setId(1);
+            //user.setId(1);
             user.setName("123");
             user.setRemark("remark");
             userList.add(user);
