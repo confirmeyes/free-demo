@@ -1,9 +1,9 @@
 ### mysql 执行 sql步骤
 
-- client
-- server  ---> 解析器 ---> 抽象语法树 ---> 优化器 （Rbo 基于规则， Cbo 基于成本）
-- 执行器 （与存储引擎交互）
-- 存储引擎
+- **client**
+- **server  ---> 连接器 --> 解析器 ---> 抽象语法树 ---> 优化器 （Rbo 基于规则， Cbo 基于成本）**
+- **执行器 （与存储引擎交互）**
+- **存储引擎**
 
 #### 磁盘预读 最小单位页 大小是4K ， 预读N4K
 
@@ -87,9 +87,24 @@ show profile swaps for query n
 ### 索引
 
 - InnoDB ,  MyISAM底层 B+tree
+
 - **MyISAM 的 B+tree 数据与索引分开存储，B+树中存储的是实际数据所在的地址**
+
 - InnoDB 的 B+tree 数据与索引一起存储
+
+  
+
+---
+
 - 在mysql中，只有memory的存储引擎显式支持哈希索引
+- 哈希索引基于哈希表的实现，只有精确匹配索引所有列的查询才有效 ，范围查询无效
+
+#### 使用索引注意事项
+
+- 通配符%不能放在前面，不然索引失效
+- 匹配范围
+- 全匹配
+- 精确匹配
 
 #### 索引数据结构演变过程
 
@@ -114,7 +129,7 @@ show profile swaps for query n
 
 - B+树 优化了B树，数据只存储在叶子节点 ， 非叶子节点存储Key
 
-
+#### 避免哈希冲突 ---> 编写优秀的哈希算法
 
 #### mysql默认会给唯一字段建立索引，主键是唯一且非空字段
 
@@ -128,7 +143,7 @@ show profile swaps for query n
 
 #### 组合索引
 
-
+- **组合索引中 范围查询放在前面，后面索引失效**
 
 ### 面试索引
 
@@ -148,7 +163,9 @@ show profile swaps for query n
 
 ---
 
-
+- order by 利用索引扫描进行排序， Extra中 index ， 索引如果不能覆盖查询全部列 就会出现每扫描一列就回表查询对应的行，回表增加随机IO次数
+- using filesort 文件排序，Extra中 Null为使用了索引排序
+- 索引默认是升序排序 ， 一个SQL中 同时出现desc 和 asc 的话， 索引order by失效
 
 ### 存储引擎
 
@@ -156,7 +173,9 @@ show profile swaps for query n
 
 ### 执行计划
 
+#### Cardinality 基数
 
+- OLAP OLTP
 
 ### 慢查询日记
 
