@@ -13,6 +13,11 @@
 
 sql执行各步骤执行时间
 
+- mysql最大连接数
+  - show variables like 'max_connections';
+- 线程连接数 ， 分配线程数量
+  - show status like '%thread%';
+
 #### show profile                                                                                                   
 
 ```mysql
@@ -177,5 +182,122 @@ show profile swaps for query n
 
 - OLAP OLTP
 
+  
+
+---
+
+#### JOIN
+
+- 小表JOIN大表
+- 小表可以放在内存里面，大表放在内存里面，mapjoin
+- 通过JOIN 进行优化子查询
+
+---
+
+- limit优化 ，当分页的表行数很多时，为了避免逐条遍历 ， 使用JOIN进行多表JOIN
+- 直接使用limit 进行分页，逐条遍历数据，然后取5条
+
+select * from table t1 JOIN (select id from table limit 10000000,5) t2 ON t1.id = t2.id;
+
+
+
+### union
+
+- union
+
+- union all
+
+- minus
+
+  
+
+### 锁
+
+#### innodb 支持表锁和行锁，行锁是加在索引上面的，若没有索引，则采取表锁
+
+- for update：IX锁(意向排它锁)，即在符合条件的rows上都加了排它锁
+- lock in share mode：是IS锁(意向共享锁)，即在符合条件的rows上都加了共享锁
+- 排它锁：X锁、 写锁，事务A对一个资源加了X锁后只有A本身能对该资源进行读和写操作，其他事务对该资源的读和写操作都将被阻塞，直到A释放锁为止 
+- 共享锁：S锁、 读锁， 事务A锁定的数据其他事务可以共享读该资源，但不能写，直到事务A释放
+- Next-Key Lock是Gap Lock（间隙锁）和Record Lock（行锁）的结合版，都属于Innodb的锁机制
+
+#### MyISAM   支持表锁
+
+- MySQL的表级锁有两种模式：**表共享读锁（Table Read Lock）**和**表独占写锁（Table Write Lock）**。  
+
+- MyISAM  默认开启 共享读锁 和 独占写锁 ， 不需要使用命令来显式加锁
+
+### 服务器参数
+
+- 最大连接数 ---默认151
+
+```mysql
+SHOW VARIABLES like '%max_connections%'
+```
+
+- 用户最大连接数
+  - max_user_connections
+
+- mysql能够暂存的连接数量，当mysql的线程在一个很短时间内得到非常多的连接请求时，就会起作用，如果mysql的连接数量达到max_connections时，新的请求会被存储在堆栈中，以等待某一个连接释放资源，如果等待连接的数量超过back_log,则不再接受连接资源
+  - back_log ---默认80
+- mysql在关闭一个非交互的连接之前需要等待的时长
+  - wait_timeout
+- 关闭一个交互连接之前需要等待的秒数
+  - interactive_timeout
+
+
+
+### 日志
+
+```mysql
+SHOW VARIABLES like '%query_log%'
+```
+
+#### 当数据修改时，innodb引擎会将记录写到redo log中，并更新内存 ， 并在合适时机将记录操作到磁盘中
+
+#### redo log是固定大小的，是循环写的过程
+
+#### 有redo log ，innodb就可以保证即使数据库发生异常重启，之前的记录也不会丢失，叫做crash-safe
+
+- redo 循环写
+
+- undo
+
+- 两种属于innodb层面 ，  
+
+- ACID 原子性，一致性，隔离性，持久性
+
+#### undo日志实现事物的原子性 ，在Mysql Innodb存储引擎中 实现多版本并发控制（MVCC），undo log 存储了数据备份，如果出现错误或者用户执行了ROLLBACK语句，系统可以利用Undo Log中的备份将数据恢复到十五开始之前的状态
+
+  > undo log是逻辑日志:
+  >
+  > 当删除一条记录，undo log中会记录一条对应的insert插入记录
+
+- 隔离级别通过锁实现 ， 持久性通过redo日志实现
+
+---
+
+#### MyISAM 中不能使用redo 和 undo log
+
+- binlog 属于 mysql server，记录的是这个语句的原始逻辑
+- binlog 追加写
+
 ### 慢查询日记
+
+- slow_query_log 是否开启慢查询日志记录
+- slow_query_log_file 指定慢查询日志文件名称，用于记录耗时比较长的查询语句
+- long_query_time 设置慢查询的时间，超过这个时间的查询语句才会记录日志
+
+
+
+### 缓存
+
+```mysql
+SHOW VARIABLES like '%query_cache%'
+```
+
+- 索引缓存区的大小（只对myisam表起作用）
+  - key_buffer_size
+- 线程缓存大小  thread_cache_size 默认9
+- 相当于自带的线程池，线程个数
 
