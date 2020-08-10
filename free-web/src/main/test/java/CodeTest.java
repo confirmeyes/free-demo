@@ -13,6 +13,6 @@ public class CodeTest {
     void simple(){
         int value = HttpStatus.OK.value();
         System.out.println(value);
-        //Assertions.assertEquals(value,200,"断言200");
+        Assertions.assertEquals(200,value,"断言201");
     }
 }
