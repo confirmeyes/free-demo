@@ -1,7 +1,10 @@
 package socket;
 
+import entity.User;
+
 import java.io.DataInputStream;
 import java.io.InputStream;
+import java.io.ObjectInputStream;
 import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -27,9 +30,18 @@ public class Server1 {
         System.out.println("客户端传输的数据是：" + str);*/
 
         //2. 使用inputStream read byte[]
-        byte[] buf = new byte[1024];
+        /*byte[] buf = new byte[1024];
         int length = inputStream.read(buf);
-        System.out.println("客户端传输的数据是：" + new String(buf,0,length));
+        System.out.println("客户端传输的数据是：" + new String(buf,0,length));*/
+
+        // 3. 传输对象数据 ObjectOutputStream
+        ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
+        User user = (User) objectInputStream.readObject();
+        System.out.println("欢迎你："+user.getName());
+
+        //截断输入流
+        //server.shutdownInput();
+
 
         //---------------------返回客户端数据----------------------------------
         OutputStream outputStream = server.getOutputStream();
@@ -37,6 +49,7 @@ public class Server1 {
 
         //关闭所有的流操作
         //dataInputStream.close();
+        objectInputStream.close();
         inputStream.close();
         server.close();
         serverSocket.close();

@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
+
 /**
  * @author WIN10 .
  * @create 2020-05-15-15:45 .
@@ -11,7 +13,9 @@ import lombok.Setter;
  */
 
 
-public class User {
+public class User implements Serializable {
+
+    private static final long serialVersionUID = 6334296559008359591L;
 
     private Integer id;
     private String name;

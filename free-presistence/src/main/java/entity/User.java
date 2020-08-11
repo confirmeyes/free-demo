@@ -18,8 +18,8 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Accessors(chain = true)
 public class User implements Serializable {
-    private static final long serialVersionUID = 1L;
 
+    private static final long serialVersionUID = 6851455035229006654L;
     private Integer id;
     private Integer age;
     private String name;
