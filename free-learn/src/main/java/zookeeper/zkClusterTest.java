@@ -6,7 +6,6 @@ import org.apache.curator.framework.CuratorFrameworkFactory;
 import org.apache.curator.retry.ExponentialBackoffRetry;
 import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.data.Stat;
-import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -21,7 +20,7 @@ public class zkClusterTest {
 
     private Logger log = LoggerFactory.getLogger(zkClusterTest.class);
 
-    @Test
+
     public void create() throws Exception {
         //重试策略 初始6S 重试2次
         RetryPolicy retryPolicy = new ExponentialBackoffRetry(6000, 2);

@@ -3,7 +3,6 @@ import com.drew.imaging.jpeg.JpegProcessingException;
 import com.drew.metadata.Directory;
 import com.drew.metadata.Metadata;
 import com.drew.metadata.Tag;
-import org.junit.Test;
 
 import java.io.File;
 import java.io.IOException;
@@ -17,7 +16,7 @@ import java.io.IOException;
 
 public class getPhotoInfo {
 
-    @Test
+
     public void readMetadata() {
 
         File jpegFile = new File("C:\\Users\\lpx\\Desktop\\417e9be7c54025e47dbb18722dd54e6.jpg");

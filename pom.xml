@@ -17,8 +17,10 @@
         <module>free-common</module>
         <module>free-presistence</module>
         <module>free-logging</module>
-        <module>free-admin</module>
         <module>free-service</module>
+        <module>lcn-order</module>
+        <module>lcn-pay</module>
+        <module>lcn-tm</module>
     </modules>
 
     <!-- 定义属性值 -->

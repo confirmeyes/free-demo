@@ -5,7 +5,6 @@ import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
 import org.apache.curator.framework.recipes.cache.*;
 import org.apache.curator.retry.ExponentialBackoffRetry;
-import org.junit.Test;
 
 
 /**
@@ -20,7 +19,7 @@ public class zkWatchTest {
      *
      * @throws Exception
      */
-    @Test
+
     public void watchNode() throws Exception {
 
         CuratorFramework zkClient = getZkClient();
@@ -46,7 +45,7 @@ public class zkWatchTest {
      *
      * @throws Exception
      */
-    @Test
+
     public void watchChildNode() throws Exception {
 
         CuratorFramework zkClient = getZkClient();
@@ -77,7 +76,7 @@ public class zkWatchTest {
      *
      * @throws Exception
      */
-    @Test
+
     public void watchAllChildNode() throws Exception {
 
         CuratorFramework zkClient = getZkClient();
@@ -93,7 +92,7 @@ public class zkWatchTest {
         zkClient.close();
     }
 
-    @Test
+
     public void clear() throws Exception {
         CuratorFramework zkClient = getZkClient();
         zkClient.delete().forPath("/name/top1");
