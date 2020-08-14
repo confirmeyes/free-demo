@@ -16,11 +16,11 @@
         <module>free-web</module>
         <module>free-common</module>
         <module>free-presistence</module>
-        <module>free-logging</module>
         <module>free-service</module>
         <module>lcn-order</module>
         <module>lcn-pay</module>
         <module>lcn-tm</module>
+        <module>eureka-server</module>
     </modules>
 
     <!-- 定义属性值 -->
@@ -47,6 +47,7 @@
         <commons-fileupload.version>1.4</commons-fileupload.version>
         <mail.version>1.5.0-b01</mail.version>
         <junit.jupiter.version>5.5.2</junit.jupiter.version>
+        <spring-cloud.version>Hoxton.SR3</spring-cloud.version>
     </properties>
 
     <!-- 依赖声明 -->
