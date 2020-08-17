@@ -1,4 +1,4 @@
-package com.pay.entity;
+package com.order.entity;
 
 import lombok.Data;
 

@@ -26,7 +26,7 @@
     <!--通过实体作为筛选条件查询-->
     <select id="queryAll" resultMap="LcnPayMap">
         select
-          id, status
+        id, status
         from sys.lcn_pay
         <where>
             <if test="id != null">
@@ -40,8 +40,8 @@
 
     <!--新增所有列-->
     <insert id="insert" keyProperty="id" useGeneratedKeys="true">
-        insert into sys.lcn_pay(status)
-        values (#{status})
+        insert into sys.lcn_pay(id,status)
+        values (#{id},#{status})
     </insert>
 
     <!--通过主键修改数据-->

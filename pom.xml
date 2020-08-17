@@ -29,7 +29,8 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <junit.jupiter.version>5.3.2</junit.jupiter.version>
-        <spring.boot.version>2.1.1.RELEASE</spring.boot.version>
+        <spring.boot.version>2.2.5.RELEASE</spring.boot.version>
+        <spring-cloud.version>Hoxton.SR3</spring-cloud.version>
         <projectlombok.version>1.18.10</projectlombok.version>
         <!-- 图片处理 -->
         <drewnoakes.version>2.11.0</drewnoakes.version>
@@ -47,7 +48,6 @@
         <commons-fileupload.version>1.4</commons-fileupload.version>
         <mail.version>1.5.0-b01</mail.version>
         <junit.jupiter.version>5.5.2</junit.jupiter.version>
-        <spring-cloud.version>Hoxton.SR3</spring-cloud.version>
     </properties>
 
     <!-- 依赖声明 -->
@@ -63,22 +63,13 @@
                 <scope>import</scope>
             </dependency>
 
-            <!-- lombok-->
             <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>${projectlombok.version}</version>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
-
-            <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
-            <dependency>
-                <groupId>org.junit.jupiter</groupId>
-                <artifactId>junit-jupiter-api</artifactId>
-                <version>${junit.jupiter.version}</version>
-                <scope>test</scope>
-            </dependency>
-
-
         </dependencies>
     </dependencyManagement>
 

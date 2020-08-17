@@ -1,5 +1,7 @@
 package com.order.entity;
 
+import lombok.Data;
+
 import java.io.Serializable;
 
 /**
@@ -8,6 +10,8 @@ import java.io.Serializable;
  * @author makejava
  * @since 2020-08-13 10:14:13
  */
+
+@Data
 public class LcnOrder implements Serializable {
     private static final long serialVersionUID = 697056002783030678L;
     /**
