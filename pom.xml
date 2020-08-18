@@ -21,6 +21,8 @@
         <module>lcn-pay</module>
         <module>lcn-tm</module>
         <module>eureka-server</module>
+        <module>soft-pay</module>
+        <module>soft-order</module>
     </modules>
 
     <!-- 定义属性值 -->
