@@ -7,16 +7,22 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="free-admin" />
+        <module name="eureka-server" />
         <module name="free-common" />
         <module name="free-generator" />
         <module name="free-learn" />
-        <module name="free-logging" />
         <module name="free-presistence" />
         <module name="free-service" />
         <module name="free-web" />
+        <module name="lcn-order" />
+        <module name="lcn-pay" />
+        <module name="lcn-tm" />
+        <module name="soft-order" />
+        <module name="soft-pay" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="8" />
+    <bytecodeTargetLevel target="8">
+      <module name="free-logging" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
