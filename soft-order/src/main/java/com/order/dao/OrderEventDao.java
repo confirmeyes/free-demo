@@ -65,4 +65,11 @@ public interface OrderEventDao {
      */
     int deleteById(Integer id);
 
+
+    List<OrderEvent> selectByOrderType(Integer orderType);
+
+
+
+    int updateEvent(Integer orderType);
+
 }
