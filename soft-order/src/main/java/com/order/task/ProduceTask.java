@@ -42,10 +42,10 @@ public class ProduceTask {
 
             // 更改这条数据的orderType为2
             orderEventDao.updateEvent(event.getOrdertype());
+
             System.out.println("修改数据库完成 ordertype ==> 2");
-
             jmsMessagingTemplate.convertAndSend(queue, JSONObject.fromObject(event).toString());
-
+            int a = 1/0;
         }
     }
 }

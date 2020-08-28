@@ -30,6 +30,7 @@ public class ConsumerQueue {
             String content = textMessage.getText();
 
             OrderEvent orderEvent = (OrderEvent) JSONObject.toBean(JSONObject.fromObject(content), OrderEvent.class);
+            //int x = 1/0;
             orderEventDao.insert(orderEvent);
             // 业务完成，确认消息 消费成功
             textMessage.acknowledge();
