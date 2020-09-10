@@ -58,14 +58,33 @@ yum install -y wget vim net-tools lrzsz
   ```shell
   yum install -y java-1.8*
   rpm -qa | grep java
-vim /etc/profile
+  vim /etc/profile
   
   ----------------------
   export JAVA_HOME=/usr/lib/jvm/ java...
   export CLASSPATH=.:$JAVA_HOME/jre/lib/rt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
   export PATH=$PATH:$JAVA_HOME/bin
-  ```
+  -------------------------
   
+  source /etc/profile
+  ```
+
+- 安装maven配置
+
+  ```shell
+  wget https://mirrors.tuna.tsinghua.edu.cn/apache/maven/maven-3/3.5.4/binaries/apache-maven
+  -3.5.4-bin.tar.gz
+  tar -zxvf apache-maven-3.5.4-bin.tar.gz
+  mv apache-maven-3.5.4-bin.tar.gz maven
+  cd maven
+  ```
+
+  ```shell
+  vim /etc/profile
+  export M2_HOME=/usr/local/maven
+  export PATH=$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$M2_HOME/bin:$PATH
+  ```
+
   
 
 ##### 注意端口开放及占用
@@ -86,6 +105,9 @@ vim /etc/profile
 `pstree`
 
 #### firewall
+
+- 查看所有打开的端口： firewall-cmd --zone=public --list-ports
+- 查看端口是否占用  netstat -nltp
 
 `firewall-cmd --zone=public --add-port=8080/tcp --permanent` 	开放8081端口
 
@@ -121,8 +143,8 @@ vim /etc/profile
 禁用： 		      `systemctl stop firewalld`
 
 更新防火墙规则：	
-?				 `firewall-cmd --reload`
-?				 `firewall-cmd --complete-reload`
+				 `firewall-cmd --reload`
+				 `firewall-cmd --complete-reload`
 
 ---
 

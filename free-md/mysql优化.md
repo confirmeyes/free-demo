@@ -55,6 +55,25 @@ show profile swaps for query n
 
 #### 使用show processlist 
 
+```mysql
+SELECT
+	COUNT(1) 
+FROM
+	INFORMATION_SCHEMA.PROCESSLIST 
+```
+- 拼接sql，对阻塞连接进行kill
+```mysql
+SET SESSION group_concat_max_len = 102400;
+SELECT
+	GROUP_CONCAT( CONCAT( 'kill ', id, ';' ) SEPARATOR '' ) 
+FROM
+	`information_schema`.`PROCESSLIST` 
+WHERE
+	HOST = '%'
+```
+
+
+
 - 查看连接的线程个数，来观察是否有大量线程处于不正常的状态或者其他不正常的特征
 - host表示操作的主机
 - db表示操作的数据库

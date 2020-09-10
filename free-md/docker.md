@@ -7,6 +7,10 @@
 
 - yum makecache fast
 
+docker版本列表
+
+- yum list docker-ce --showduplicates | sort -r
+
 安装docker
 
 - yum -y install docker-ce
@@ -54,9 +58,14 @@ docker容器存放位置
 
 #### 容器中执行命令
 
-- docker exec [-it]  容器ID  命令
-- docker exec -it 容器ID /bin/bash
+- docker exec [-it]  容器ID  
+- docker exec -it 容器ID /bin/bash       进入容器
 - cat /proc/version       linux内核版本
+- uname -a
+- docker run -i -t 镜像:版本  进入内部
+- docker search  搜索镜像
+- docker export 容器ID     导出镜像
+- docker tag 容器ID          设置容器标签
 
 
 
