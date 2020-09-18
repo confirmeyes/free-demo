@@ -54,7 +54,21 @@ docker容器存放位置
 
 - cd /var/lib/docker
 
+杀死运行的容器：
 
+- docker kill $(docker ps -a -q)
+
+删除所有容器：
+
+- docker rm $(docker ps -a -q)
+
+强制删除所有镜像：
+
+- docker rmi -f $(docker images -q)
+
+重启docker服务
+
+- systemctl restart docker.service
 
 #### 容器中执行命令
 
