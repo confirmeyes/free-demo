@@ -25,9 +25,11 @@ systemctl enable docker
 
 - sudo docker run -d --restart=unless-stopped -p 80:80 -p 443:443 rancher/rancher
 
+#### 安装kubectl
 
-
-
+- wget http://rancher-mirror.cnrancher.com/kubectl/v1.18.6/linux-amd64-v1.18.6-kubectl
+- echo 'source <(kubectl completion bash)'>> .bashrc
+- source .bashrc
 
 #### 安装kubesphere
 
