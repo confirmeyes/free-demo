@@ -56,12 +56,12 @@ public class RedisLockUtils {
         //只有当锁不存在，进行set
         //nx--key不存在，xx--key存在， ex--秒， px--毫秒
         long expireTime = 5000;
-        if ("OK".equals(jedis.set(lockKey, id, "nx", "px", expireTime))) {
+        /*if ("OK".equals(jedis.set(lockKey, id, "nx", "px", expireTime))) {
             System.err.println("---------加锁--------");
             threadLocal.set(id);
             setOwnerThread(currentThread);
             return true;
-        }
+        }*/
         if (overThread == currentThread) {
             //分布式锁可重入性
             return true;

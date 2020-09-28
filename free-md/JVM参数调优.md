@@ -15,10 +15,14 @@ nohup java -jar -server  -Xms1G  -Xmx1G  -XX:+UseG1GC  -XX:MaxGCPauseMillis=200 
 >
 > NumberOfGCLogFiles设置文件数量5个，GCLogFileSize文件大小20M （超过20M，进入下一个文件）
 
-```linux
+```shell
 -Xloggc:/opt/xxx/logs/xxx-xxx-gc-%t.log  -XX:+UseGCLogFileRotation  -XX:NumberOfGCLogFiles=5  -XX:GCLogFileSize=20M  -XX:+PrintGCDetails  -XX:+PrintGCDateStamps   -XX:+PrintGCCause
 ```
 ---
+
+```shell
+nohup java -jar -server  -Xms1G  -Xmx1G  -XX:+UseG1GC  -XX:MaxGCPauseMillis=200  -XX:+UnlockExperimentalVMOptions  -XX:G1NewSizePercent=20  -XX:G1MaxNewSizePercent=30  -XX:+DisableExplicitGC  -XX:+PrintGC  -XX:+PrintGCDetails  -XX:+PrintGCTimeStamps  -XX:+HeapDumpOnOutOfMemoryError  -XX:HeapDumpPath=/project/eladmin/logs/oom-error_8000.log    -Xloggc:/project/eladmin/logs/xxx-xxx-gc-%t.log   -XX:+UseGCLogFileRotation  -XX:NumberOfGCLogFiles=5  -XX:GCLogFileSize=20M  -XX:+PrintGCDetails   -XX:+PrintGCDateStamps  -XX:+PrintGCCause  eladmin-system-2.1.jar  >/dev/null 2>eladmin.log &
+```
 
 ## JVM调优思路
 
@@ -80,9 +84,9 @@ top 	、	top -Hp	pid
 
    jstack 定位线程、进程状况
 
-- jmap   -histo 4655 | head -20
+- jmap   -histo pid | head -20
 
-  查找有多少对象产生
+  查找产生对象数 排名前20 的对象具体是哪些
 
 - jmap -dump:live,format=b,file=heap.bin  pid
 

@@ -278,25 +278,6 @@ init_connect='SET NAMES utf8'`
 
 
 
-
-#### Docker 操作
-
-检查是否安装成功			`docker version`
-
-设置开机自启动或关闭		`systemctl enable||disable docker`
-
-启动docker				`systemctl start docker`
-
-重启docker				`systemctl restart docker.service`
-
-通过查看`netstat`确认的输出是否`dockerd`正在侦听已配置的端口来检查更改是否得到遵守。
-
-`netstat -lntp | grep dockerd`
-
-查看镜像列表				`docker images`
-
-
-
 #### openresty 常用命令
 
 依赖安装			
