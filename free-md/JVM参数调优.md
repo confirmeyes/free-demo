@@ -26,11 +26,11 @@ nohup java -jar -server  -Xms1G  -Xmx1G  -XX:+UseG1GC  -XX:MaxGCPauseMillis=200 
 
 
 ```
-nohup java -jar -server  -Xms1G  -Xmx1G  -XX:+UseG1GC  -XX:MaxGCPauseMillis=200  -XX:+UnlockExperimentalVMOptions  -XX:G1NewSizePercent=20  -XX:G1MaxNewSizePercent=30  -XX:+DisableExplicitGC  -XX:+PrintGC  -XX:+PrintGCDetails  -XX:+PrintGCTimeStamps  -XX:+HeapDumpOnOutOfMemoryError  -XX:HeapDumpPath=/data/java-apply/eladmin/oom-error_8000.log    -Xloggc:/data/java-apply/eladmin/xxx-xxx-gc-%t.log   -XX:+UseGCLogFileRotation  -XX:NumberOfGCLogFiles=5  -XX:GCLogFileSize=20M  -XX:+PrintGCDetails   -XX:+PrintGCDateStamps  -XX:+PrintGCCause  eladmin-system-2.1.jar  >/dev/null 2>eladmin.log &
+nohup java -jar -server  -Xms1G  -Xmx1G  -XX:+UseG1GC  -XX:MaxGCPauseMillis=200  -XX:+UnlockExperimentalVMOptions  -XX:G1NewSizePercent=20  -XX:G1MaxNewSizePercent=30  -XX:+DisableExplicitGC  -XX:+PrintGC  -XX:+PrintGCDetails  -XX:+PrintGCTimeStamps  -XX:+HeapDumpOnOutOfMemoryError  -XX:HeapDumpPath=/data/java-apply/eladmin/oom-error_8000.log    -Xloggc:/data/java-apply/eladmin/gc-%t.log   -XX:+UseGCLogFileRotation  -XX:NumberOfGCLogFiles=5  -XX:GCLogFileSize=20M  -XX:+PrintGCDetails   -XX:+PrintGCDateStamps  -XX:+PrintGCCause  eladmin-system-2.1.jar  >/dev/null 2>eladmin.log &
 ```
 
 ```
-nohup java -jar -server  -Xms1G  -Xmx1G  -XX:+UseG1GC  -XX:MaxGCPauseMillis=200  -XX:+UnlockExperimentalVMOptions  -XX:G1NewSizePercent=20  -XX:G1MaxNewSizePercent=30  -XX:+DisableExplicitGC  -XX:+PrintGC  -XX:+PrintGCDetails  -XX:+PrintGCTimeStamps  -XX:+HeapDumpOnOutOfMemoryError  -XX:HeapDumpPath=/data/java-apply/61sx/oom-error_8000.log    -Xloggc:/data/java-apply/61sx/xxx-xxx-gc-%t.log   -XX:+UseGCLogFileRotation  -XX:NumberOfGCLogFiles=5  -XX:GCLogFileSize=20M  -XX:+PrintGCDetails   -XX:+PrintGCDateStamps  -XX:+PrintGCCause  61sx.jar  >/dev/null 2>61sx.log &
+nohup java -jar -server  -Xms1G  -Xmx1G  -XX:+UseG1GC  -XX:MaxGCPauseMillis=200  -XX:+UnlockExperimentalVMOptions  -XX:G1NewSizePercent=20  -XX:G1MaxNewSizePercent=30  -XX:+DisableExplicitGC  -XX:+PrintGC  -XX:+PrintGCDetails  -XX:+PrintGCTimeStamps  -XX:+HeapDumpOnOutOfMemoryError  -XX:HeapDumpPath=/data/java-apply/61sx/oom-error_8000.log    -Xloggc:/data/java-apply/61sx/gc-%t.log   -XX:+UseGCLogFileRotation  -XX:NumberOfGCLogFiles=5  -XX:GCLogFileSize=20M  -XX:+PrintGCDetails   -XX:+PrintGCDateStamps  -XX:+PrintGCCause  61sx.jar  >/dev/null 2>61sx.log &
 ```
 
 ## JVM调优思路

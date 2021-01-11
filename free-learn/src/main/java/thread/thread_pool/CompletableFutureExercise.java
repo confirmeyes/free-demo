@@ -35,11 +35,6 @@ public class CompletableFutureExercise {
 
         CompletableFuture<Double> futurezfb = CompletableFuture.supplyAsync(CompletableFutureExercise::priceOfzfb);
 
-        logger.info("--------------allOf--------------");
-
-        CompletableFuture<Void> future = CompletableFuture.allOf(futuretb, futuretm, futurezfb);
-        logger.info("合计: {}", future.get());
-
 
         logger.info("--------------thenCombine合并两个Future--------------");
         /*
@@ -59,6 +54,11 @@ public class CompletableFutureExercise {
         logger.info("stringFuture: {}", stringFuture.get());
 
 
+        logger.info("--------------allOf--------------");
+
+        CompletableFuture<Void> future = CompletableFuture.allOf(futuretb, futuretm, futurezfb);
+        logger.info("合计: {}", future.get());
+
         logger.info("--------------thenCompose--------------");
         /*
          * 将两个线程串行连接起来，只有第一个线程返回结果时，才会将返回值作为参数传给第二个线程执行。
@@ -76,18 +76,15 @@ public class CompletableFutureExercise {
     }
 
     private static double priceOftm() {
-        delay();
         return 1.00;
     }
 
 
     private static double priceOftb() {
-        delay();
         return 2.00;
     }
 
     private static double priceOfzfb() {
-        delay();
         return 3.00;
     }
 

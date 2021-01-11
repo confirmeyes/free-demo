@@ -24,6 +24,32 @@ yum install -y wget vim net-tools lrzsz
 
 - 增加 ipaddr gateway netmask dns1 dns2   dns1与网关一致
 
+- ```shell
+  TYPE=Ethernet
+  PROXY_METHOD=none
+  BROWSER_ONLY=no
+  BOOTPROTO=static
+  DEFROUTE=yes
+  IPV4_FAILURE_FATAL=no
+  IPV6INIT=yes
+  IPV6_AUTOCONF=yes
+  IPV6_DEFROUTE=yes
+  IPV6_FAILURE_FATAL=no
+  IPV6_ADDR_GEN_MODE=stable-privacy
+  NAME=ens33
+  DEVICE=ens33
+  ONBOOT=yes
+  
+  DNS1=114.114.114.114
+  DNS2=8.8.8.8
+  GATEWAY=192.168.1.1
+  IPADDR=192.168.1.9
+  NETMASK=255.255.255.0
+  ZONE=public
+  ```
+
+- 
+
 - 重启网络  
 
   ```shell
@@ -92,6 +118,14 @@ yum install -y wget vim net-tools lrzsz
 `netstat -anp | grep 2181`
 
 > linux网络状态	 -a，显示所有	-n，不用别名显示，只用数字显示		-p，显示进程号和进程名
+
+- 查看8000 端口占用情况
+
+```shell
+lsof -i:8000
+```
+
+
 
 ##### linux进程
 

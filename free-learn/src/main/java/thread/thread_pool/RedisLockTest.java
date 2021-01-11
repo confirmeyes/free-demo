@@ -52,13 +52,9 @@ public class RedisLockTest {
         RedisLockTest redisLockTest = new RedisLockTest();
 
         for (int i = 0; i < 400; i++) {
-            ThreadPool.execute(new Runnable() {
-                @Override
-                public void run() {
-
-                    System.out.println(Thread.currentThread().getId());
-                    redisLockTest.reduce(1);
-                }
+            ThreadPool.execute(() -> {
+                System.out.println(Thread.currentThread().getId());
+                redisLockTest.reduce(1);
             });
         }
 

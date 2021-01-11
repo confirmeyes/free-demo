@@ -6,6 +6,8 @@
 public class StringTest {
     public static void main(String[] args) {
         ///method(null);
+        String a = "-63";
+        System.out.println(Integer.parseInt(a));
 
 
     }

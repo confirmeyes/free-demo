@@ -3,8 +3,10 @@ package stream;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * @author WIN10 .
@@ -25,5 +27,13 @@ public class LambdaDemo {
         List<String> stringList = Arrays.asList("sql", "java", "php", "network");
         List<String> collect = stringList.stream().filter(str -> str.length() > 3).collect(Collectors.toList());
         collect.forEach(System.out::println);
+    }
+
+    @Test
+    public void listTest3() {
+        List<String> listC = Arrays.asList("sql", "java", "php", "network");
+        List<String> listD = Arrays.asList("sql", "java", "web");
+        List<String> studentList = Stream.of(listC,listD).flatMap(Collection::stream).distinct().collect(Collectors.toList());
+        studentList.forEach(System.out::println);
     }
 }

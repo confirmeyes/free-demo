@@ -16,11 +16,15 @@ import java.io.IOException;
 
 public class getPhotoInfo {
 
+    public static void main(String[] args) {
+        readMetadata();
+    }
 
-    public void readMetadata() {
 
-        File jpegFile = new File("C:\\Users\\lpx\\Desktop\\417e9be7c54025e47dbb18722dd54e6.jpg");
+    public static void readMetadata() {
 
+        File jpegFile = new File("C:\\Users\\WIN10\\Desktop\\mmexport1605584497513.jpg");
+//IMG_20201117_113154.jpg
         Metadata metadata;
         try {
             metadata = JpegMetadataReader.readMetadata(jpegFile);

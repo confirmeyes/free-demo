@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace=".dao.RegionDao">
+
+    <resultMap type=".entity.Region" id="RegionMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+        <result property="pid" column="pid" jdbcType="INTEGER"/>
+        <result property="sname" column="sname" jdbcType="VARCHAR"/>
+        <result property="level" column="level" jdbcType="INTEGER"/>
+        <result property="citycode" column="citycode" jdbcType="VARCHAR"/>
+        <result property="yzcode" column="yzcode" jdbcType="VARCHAR"/>
+        <result property="mername" column="mername" jdbcType="VARCHAR"/>
+        <result property="lng" column="Lng" jdbcType="OTHER"/>
+        <result property="lat" column="Lat" jdbcType="OTHER"/>
+        <result property="pinyin" column="pinyin" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="RegionMap">
+        select
+          id, name, pid, sname, level, citycode, yzcode, mername, Lng, Lat, pinyin
+        from 61db.region
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="RegionMap">
+        select
+          id, name, pid, sname, level, citycode, yzcode, mername, Lng, Lat, pinyin
+        from 61db.region
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="RegionMap">
+        select
+          id, name, pid, sname, level, citycode, yzcode, mername, Lng, Lat, pinyin
+        from 61db.region
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="name != null and name != ''">
+                and name = #{name}
+            </if>
+            <if test="pid != null">
+                and pid = #{pid}
+            </if>
+            <if test="sname != null and sname != ''">
+                and sname = #{sname}
+            </if>
+            <if test="level != null">
+                and level = #{level}
+            </if>
+            <if test="citycode != null and citycode != ''">
+                and citycode = #{citycode}
+            </if>
+            <if test="yzcode != null and yzcode != ''">
+                and yzcode = #{yzcode}
+            </if>
+            <if test="mername != null and mername != ''">
+                and mername = #{mername}
+            </if>
+            <if test="lng != null">
+                and Lng = #{lng}
+            </if>
+            <if test="lat != null">
+                and Lat = #{lat}
+            </if>
+            <if test="pinyin != null and pinyin != ''">
+                and pinyin = #{pinyin}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into 61db.region(name, pid, sname, level, citycode, yzcode, mername, Lng, Lat, pinyin)
+        values (#{name}, #{pid}, #{sname}, #{level}, #{citycode}, #{yzcode}, #{mername}, #{lng}, #{lat}, #{pinyin})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update 61db.region
+        <set>
+            <if test="name != null and name != ''">
+                name = #{name},
+            </if>
+            <if test="pid != null">
+                pid = #{pid},
+            </if>
+            <if test="sname != null and sname != ''">
+                sname = #{sname},
+            </if>
+            <if test="level != null">
+                level = #{level},
+            </if>
+            <if test="citycode != null and citycode != ''">
+                citycode = #{citycode},
+            </if>
+            <if test="yzcode != null and yzcode != ''">
+                yzcode = #{yzcode},
+            </if>
+            <if test="mername != null and mername != ''">
+                mername = #{mername},
+            </if>
+            <if test="lng != null">
+                Lng = #{lng},
+            </if>
+            <if test="lat != null">
+                Lat = #{lat},
+            </if>
+            <if test="pinyin != null and pinyin != ''">
+                pinyin = #{pinyin},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from 61db.region where id = #{id}
+    </delete>
+
+</mapper>

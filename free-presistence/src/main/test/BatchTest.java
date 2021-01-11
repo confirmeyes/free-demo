@@ -2,6 +2,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.platform.commons.logging.Logger;
 import org.junit.platform.commons.logging.LoggerFactory;
 import org.apache.curator.shaded.com.google.common.util.concurrent.ThreadFactoryBuilder;
+import utils.JDBCUtils;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
