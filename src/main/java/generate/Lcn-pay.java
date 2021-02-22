@@ -1,14 +1,14 @@
 package generate;
 
 import java.io.Serializable;
-import lombok.Data;
 
 /**
  * lcn-pay
  * @author 
  */
-@Data
+
 public class Lcn-pay implements Serializable {
+
     private Integer id;
 
     /**

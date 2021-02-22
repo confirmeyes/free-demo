@@ -125,7 +125,28 @@ yum install -y wget vim net-tools lrzsz
 lsof -i:8000
 ```
 
+- linux路由表
 
+```shell
+route -n
+```
+
+- 增加路由表规则 192.168.88.0是目标地址 ，下一跳地址是192.168.150.13
+
+```shell
+route add -host 192.168.88.0 gw 192.168.150.13
+```
+
+
+
+- linux网卡表
+- ARP协议进行  IP地址和物理网卡MAC的映射
+
+```shell
+arp -a
+```
+
+- Tcp/ip 协议是基于下一跳机制实现，ip是指向目标端，mac地址是下一跳的节点网卡地址
 
 ##### linux进程
 
@@ -309,6 +330,14 @@ init_connect='SET NAMES utf8'`
 #####  查看节点的状态
 `show slave status\G;`
 `show master status\G;`
+
+
+
+#### 跳过权限启动数据库
+
+```shell
+./mysqld_safe --skip-grant-tables &
+```
 
 
 
