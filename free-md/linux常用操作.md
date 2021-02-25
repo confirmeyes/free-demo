@@ -115,7 +115,7 @@ yum install -y wget vim net-tools lrzsz
 
 ##### 注意端口开放及占用
 
-`netstat -anp | grep 2181`
+`netstat -antp | grep 2181`
 
 > linux网络状态	 -a，显示所有	-n，不用别名显示，只用数字显示		-p，显示进程号和进程名
 
