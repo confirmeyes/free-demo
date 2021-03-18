@@ -1,11 +1,11 @@
-package JZOffer;
+package JZOffer.string;
 
 /**
  * @author lpx .
  * @create 2020-03-09-11:43 .
  * @description .
  */
-public class String_1 {
+public class ReplaceString {
 
     //给定一个字符串，将其中的空格替换为%20
 

@@ -9,7 +9,7 @@ import java.util.Map;
  * @create 2021-03-03-15:49 .
  * @description .
  */
-public class ArrayTest {
+public class ArrayCountTest {
 
 
     //（1） 任给一个数组，其中只有一个元素是单独出现，其他是成对出现，输出单独的元素。
