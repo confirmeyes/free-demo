@@ -1,6 +1,5 @@
 package JZOffer.DataStructure;
 
-import static JZOffer.DataStructure.ListNode_1.ReverseList;
 
 /**
  * @author WIN10 .
