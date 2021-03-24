@@ -23,6 +23,7 @@
         <module>eureka-server</module>
         <module>soft-pay</module>
         <module>soft-order</module>
+        <module>kafka</module>
     </modules>
 
     <!-- 定义属性值 -->
@@ -50,6 +51,8 @@
         <commons-fileupload.version>1.4</commons-fileupload.version>
         <mail.version>1.5.0-b01</mail.version>
         <junit.jupiter.version>5.5.2</junit.jupiter.version>
+        <!-- fastJson -->
+        <fastjson.version>1.2.71</fastjson.version>
     </properties>
 
     <!-- 依赖声明 -->
