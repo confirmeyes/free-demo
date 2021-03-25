@@ -111,7 +111,21 @@ yum install -y wget vim net-tools lrzsz
   export PATH=$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$M2_HOME/bin:$PATH
   ```
 
-  
+- 清空文件内容
+
+```shell
+cat /dev/null > access.log
+```
+
+```shell
+cp /dev/null access.log
+```
+
+```shell
+echo > access.log
+```
+
+
 
 ##### 注意端口开放及占用
 
@@ -337,6 +351,17 @@ init_connect='SET NAMES utf8'`
 
 ```shell
 ./mysqld_safe --skip-grant-tables &
+```
+
+
+
+### chrome代理配置解决访问github超时
+
+```shell
+C:\Windows\System32\drivers\etc\hosts
+
+192.30.255.112 github.com
+185.31.16.184 github.global.ssl.fastly.net
 ```
 
 

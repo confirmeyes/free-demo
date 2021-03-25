@@ -17,11 +17,8 @@ import javax.annotation.Resource;
 @SpringBootTest(classes = SpringkafkaApplication.class)
 public class produceTest {
 
-    @Autowired
-    ProduceTest produceTest;
 
     @Test
     public void send (){
-        produceTest.send("send msg !!!");
     }
 }
