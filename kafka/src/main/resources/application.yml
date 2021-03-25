@@ -35,7 +35,14 @@ spring:
     listener:
       # 在侦听器容器中运行的线程数。
       concurrency: 5
-      #listner负责ack，每调用一次，就立即commit
+      #listner 负责ack，每调用一次，就立即commit
+      #MANUAL	当每一批poll()的数据被消费者监听器（ListenerConsumer）处理之后, 手动调用Acknowledgment.acknowledge()后提交
+      #MANUAL_IMMEDIATE	手动调用Acknowledgment.acknowledge()后立即提交
+      #RECORD	当每一条记录被消费者监听器（ListenerConsumer）处理之后提交
+      #BATCH	当每一批poll()的数据被消费者监听器（ListenerConsumer）处理之后提交
+      #TIME	当每一批poll()的数据被消费者监听器（ListenerConsumer）处理之后，距离上次提交时间大于TIME时提交
+      #COUNT	当每一批poll()的数据被消费者监听器（ListenerConsumer）处理之后，被处理record数量大于等于COUNT时提交
+      #COUNT_TIME	TIME或COUNT　有一个条件满足时提交
       ack-mode: manual_immediate
       missing-topics-fatal: false
 

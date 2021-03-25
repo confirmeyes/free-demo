@@ -13,7 +13,6 @@ import static com.alibaba.fastjson.JSONPatch.OperationType.test;
  */
 
 @SpringBootApplication
-@EnableKafka
 public class SpringkafkaApplication {
     public static void main(String[] args) {
         SpringApplication.run(SpringkafkaApplication.class, args);

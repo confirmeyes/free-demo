@@ -48,8 +48,8 @@ yum install -y wget vim net-tools lrzsz
   ZONE=public
   ```
 
-- 
-
+  
+  
 - ÖØÆôÍøÂç  
 
   ```shell
